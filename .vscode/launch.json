@@ -8,13 +8,13 @@
             "name": "Python Debugger: FastAPI",
             "type": "debugpy",
             "request": "launch",
-            "module": "uvicorn",
+            "program": "${workspaceFolder}/app/main.py",
             "args": [
-                "main:app",
                 "--reload"
             ],
             "jinja": true,
-            "cwd": "${workspaceFolder}/app"
+            "cwd": "${workspaceFolder}/app",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

@@ -1,3 +1,4 @@
+import os
 import uvicorn
 from fastapi import FastAPI
 import logging
@@ -21,4 +22,6 @@ def read_root():
 
 if __name__ == "__main__":
     logger.info("++++++++Start server")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    HTTP_HOST = os.getenv("HTTP_HOST", "localhost")
+    HTTP_PORT = int(os.getenv("HTTP_PORT", 8000))
+    uvicorn.run(app, host=HTTP_HOST, port=HTTP_PORT)
