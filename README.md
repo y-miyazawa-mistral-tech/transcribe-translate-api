@@ -1,47 +1,46 @@
 # 文字起こし・翻訳API
 
-## 環境変数
+## 環境構築
+### 必要環境
+- Docker
+- VSCode
+- Dev Containers (VSCode拡張機能)
 
-## 起動手順
-1. 前提条件 (以下が使用できる環境であること)  
-    - docker
-    - VSCode
-    - Dev Containers(VSCode拡張機能)
-1. VSCode を開いたら, Ctrl + Shift + P で出てくる検索窓で、 `DevContainers: Reopen in Container` を選択
-1. ウィンドウが再読み込みされ、python や 必要な拡張機能、 format 設定がされたウィンドウが開かれる
-1. コマンドの確認
+### 構築手順
+1. VSCodeで `Ctrl(Cmd) + Shift + P` を押し、`DevContainers: Reopen in Container` を選択。
+2. ウィンドウが再読み込みされ、必要な設定が適用されます
+3. 以下のコマンドで環境確認
     ```bash
-    $ python -V
-    Python 3.12.7
-    $ which flake8
-    /usr/local/py-utils/bin/flake8
-    $ which black
-    /usr/local/py-utils/bin/black
+    $ python -V  # Python 3.12.7
+    $ which flake8  # /usr/local/py-utils/bin/flake8
+    $ which black  # /usr/local/py-utils/bin/black
     ```
 
-### VSCode の Debug 実行
-1. .env に必要な設定を記載(.env.sampleを参照)
-1. 
-### ターミナルから実行
-```
+## 実行方法
+### Debug 実行起動 (VSCode)
+1. `.env` ファイルに必要な設定を記載（`.env.sample`を参照）。
+
+### ターミナルから起動
+```bash
 python app/main.py
 ```
-### Docker コンテナから実行
-```
+
+### Docker コンテナから起動
+```bash
 docker compose up
 ```
 
 ## 動作確認
-`/sample/http.rest` ファイルから、リクエスト内容とレスポンスの内容を確認できる
+- `/sample/http.rest` ファイルでリクエスト内容とレスポンスを確認可能。
 
-## 単体テスト実行手順
-- vscode Testing により実行  
-VSCode サイドバーにある `フラスコ`のマークから、テスト一覧を表示でき, 実行できます.  
-debug 実行も可能です.
+## 単体テスト
+### VSCodeで実行
+1. サイドバーの `フラスコ` アイコンからテスト一覧を表示。
+2. テストを選択して実行。Debug 実行も可能。
 
-- ターミナルで実行
-    ```bash
-    pytest  # 全体実行
-    pytest test_example.py  # 単体実行
-    pytest -v  # 詳細出力
-    ```
+### ターミナルで実行
+```bash
+pytest          # 全体実行
+pytest test_example.py  # 特定のテストを実行
+pytest -v       # 詳細出力付きで実行
+```
